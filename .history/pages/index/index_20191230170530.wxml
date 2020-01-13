@@ -1,0 +1,8 @@
+<scroll-view scroll-x="true" enable-flex="true" bindscrolltoupper="toUpper" bindscrolltolower="toLower"  id="scroll-view" scroll-with-animation="true" scroll-into-view="{{toView}}" 
+scroll-left="{{scrollLeft}}" bindscroll="scroll"	class='scroll-view-H' >
+  <block wx:for-index="index"  wx:for="{{topArray}}" wx:key="*this">
+    <view class="top-item {{index == currentIndex ? 'top-item-selected':'' }}" data-index="{{index}}" bindtap="tapChange" id="item-index" >
+      <view class='top-item-text'>{{item.itemTitle}}</view>
+    </view>
+  </block>
+</scroll-view>

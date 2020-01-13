@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "v-button": "/components/image-button/index"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText":"我的视频"
+}

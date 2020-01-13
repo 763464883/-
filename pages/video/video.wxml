@@ -1,0 +1,15 @@
+<video id='myVideo' class="video" src='{{url}}' loop='{{true}}' autoplay="{{true}}" bindplay="onplay" bindonError="onError" >
+</video>
+<view class='bottom-content'>
+  <view class='video-item-bottom-left'>
+    <view class='img-text'>
+      <image src='{{avatar}}'></image>
+      <text>{{username}}</text>
+    </view>
+  </view>
+  <view class='video-item-bottom-right'>
+    <v-button class='share-btn' open-type='share'>
+      <image class='share' slot="img" src='images/wxShare.png'></image>
+    </v-button>
+  </view>
+</view>

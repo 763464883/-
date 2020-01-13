@@ -1,0 +1,44 @@
+<wxs src="../../utils/random.wxs" module="utils" />
+<scroll-view scroll-x="true" id="scroll-view" scroll-with-animation="true" scroll-into-view="{{toView}}" scroll-left="{{scrollLeft}}" bindscroll="scroll" class='scroll-view-H'>
+  <block wx:for-index="index" wx:for="{{topArray}}" wx:key="item.id">
+    <view class="top-item {{index == currentIndex ? 'top-item-selected':'' }}" data-index="{{index}}" bindtap="tapChange" data-id="{{item.id}}" id="item-{{ item.id }}">
+      <view class='top-item-text'>{{item.name}}</view>
+    </view>
+  </block>
+</scroll-view>
+
+<view class="main-content" wx:if="{{videoData.length>0}}">
+  <view class='video-item' wx:for="{{videoData}}" wx:key="*this">
+    <view class='addContent' wx:if="{{item.adId}}" wx:key="*this">
+      <ad unit-id="{{item.adId}}"></ad>
+      {{item.adId}}
+    </view>
+    <view class='video-item-top' bindtap='itemClick' data-avatar='{{item.avatar}}' data-url='{{item.videoUrl}}' data-videoName='{{item.videoName}}' data-username='{{item.username}}' data-id="{{item.id}}">
+      <image class='video-content' mode='aspectFill' src="{{item.coverUrl}}"></image>
+      <image class='video-item-top-icon' src='images/view.png'></image>
+      <image class='video-item-top-playButton' src='images/playButton.png'></image>
+      <text class='video-content-text'>{{item.videoName}}</text>
+      <text class='video-play-number'>{{item.playNum}}</text>
+      <text class='video-play-time'>{{item.videoLength}}</text>
+    </view>
+    <view class='video-item-bottom '>
+      <view class='video-item-bottom-left'>
+        <view class='img-text'>
+          <image class='video-icon' src='{{item.avatar}}'></image>
+          <text>{{item.username}}</text>
+        </view>
+      </view>
+      <view class='video-item-bottom-right'>
+        <v-button class='share-btn' open-type='share'>
+          <image class='share' slot="img" src='images/share.png'></image>
+        </v-button>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class='no-list-content'>
+    <image class='no-list-content-image' src='images/nolisticon.png'></image>
+    <text class='no-list-content-text'>视频列表为空哦！</text>
+  </view>
+</view>
